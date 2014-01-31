@@ -1,0 +1,79 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Version</title>
+  <meta name="description" content="Check version for each time app loaded by ajax to server">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Version</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">Check version for each time app loaded by ajax to server</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/myteeNatanwit/Version/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/myteeNatanwit/Version/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/myteeNatanwit/Version" class="code">View Version on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h1>
+<a name="version-check" class="anchor" href="#version-check"><span class="octicon octicon-link"></span></a>Version check</h1>
+
+<p>Screen shot here
+<img src="http://i1363.photobucket.com/albums/r708/MyteeNathanwit/ozweather2_zps8177bdbb.png" alt=""></p>
+
+<p>Added new plug in in packaging used to check version. The beta version will be on github <a href="http://intcloud.mobi/github">http://intcloud.mobi/github</a>. Required</p>
+
+<p>1-  Header set Access-Control-Allow-Origin "*"  added on top of .htaccess to enable ajax call.</p>
+
+<p>2-file version.php upload to your server. correct the url to the right address.</p>
+
+<p>3-the codding part as in plugin sample index.html</p>
+
+<p>onload, the file will try to connect to server via ajax get to fetch the latest version and compare with current version of the app and advise user to upgrade it.
+The code is so simple that we need no document for it.
+You add your product and version into version.php
+and from loading, send ajax request, ie .. $.get (".....?appname=yourapp").done(response) {}... the response is the version of your app. It can be blank if the appname is not on version.php.</p>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/myteeNatanwit" class="avatar"><img src="https://2.gravatar.com/avatar/f0f39962c046684f9448e41fd931cd3e?d=https%3A%2F%2Fidenticons.github.com%2F231a195486a523101c3eac7b8337394c.png&amp;r=x&amp;s=60" width="48" height="48"/></a> <a href="https://github.com/myteeNatanwit">myteeNatanwit</a> maintains <a href="https://github.com/myteeNatanwit/Version">Version</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="http://pages.github.com/">GitHub Pages</a><br/>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/myteeNatanwit/Version/tarball/master" class="tar">tar</a><a href="https://github.com/myteeNatanwit/Version/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
+</body>
+</html>
