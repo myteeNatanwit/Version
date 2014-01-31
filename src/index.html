@@ -1,0 +1,73 @@
+<link  type="text/css" rel="stylesheet" href="css/dialogs.css" /> 
+<body>
+<div id="version" style="display:none">1.4.7</div> 
+<div id="modaldialog">
+    <div id="bubble" class='bubble'>
+	 <div class="leftpic"><img src="css/icon64.png" /></div>    
+		<h4 id="msgtitle">Title</h4>
+		<p id="msg">This is a sample modal box.</p>
+		<a href="#" onclick="closeModal();"><div class="btn" title="this is a tool tip">Ok</div> </a>
+	</div>
+  </div>
+<h1> this is the main screen of application </h1>  
+<p> we put in a hard code version for testing purpose. say 1.4.7.
+in real app, we read this info from ini file, included with the package.
+<p>The beta version will be on github http://intcloud.mobi/github. Required
+<br>
+1- <IfModule mod_headers.c> Header set Access-Control-Allow-Origin "*" </IfModule> added on top of .htaccess to enable ajax call.
+<br>
+2-file version.php upload to your server. correct the url to the right address.
+<br>
+3-the codding part as in plugin sample index.html
+<br>
+onload, the file will try to connect to server via ajax get to fetch the latest version and compare with current version of the app and advise user to upgrade it.
+The code is so simple that we need no document for it.
+<br>You add your product and version into version.php
+and from loading, send ajax request, ie .. $.get (".....?appname=yourapp").done(response) {}... the response is the version of your app. It can be blank if the appname is not on version.php.
+<script src="js/jquery-1.9.1.js"></script>
+
+<script>
+$('#modaldialog').hide();
+
+function showModal(msg,title) {
+document.getElementById("msgtitle").innerHTML = title;
+document.getElementById("msg").innerHTML = msg;            
+$('#modaldialog').show();
+ }
+        
+function closeModal() {
+$('#modaldialog').hide();
+}
+
+function getversion() {
+var myversion, currentversion, msg ="";
+myversion = $("#version").text();
+//var url="http://localhost/version.php?appname=ozweather";
+var url="http://macchiatoacademy.com/int/Intcloud/apps/version.php?appname=ozweather";
+if (!navigator.onLine) {
+  showModal("Fail to connect to server for version update","Ozweather");
+  }
+else { 
+$.get( url )
+  .done(function( data ) {
+   currentversion = data;
+    if (currentversion > myversion) {
+       msg ="Your version is " + myversion + "<br>Current version is " + currentversion +"<br> You can update via your purchase store";
+       }
+    else {  msg = "you already have latest version " + myversion;}
+    showModal(msg,"Ozweather");
+  })
+.fail(function() {
+   showModal("Cannot connect to server for version update","Ozweather");
+   
+  })
+.always(function() {
+//    alert( "finished" )
+   });
+   
+}
+}
+
+getversion();
+</script>  
+</body>
